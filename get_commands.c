@@ -16,12 +16,12 @@ void (*get_op_func(char *str))
 			i++;
 	}
 	/* code for strcmp: (sin terminar) */
-	/*
-	if (!(op_codes[index].opcode))
+
+	if (!(farr[i].func))
 	{
-		fprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number, token[0]);
+		fprintf(stderr, "L%u: unknown instruction %s\n", str, opcode);
 		_exit(EXIT_FAILURE);
 	}
-	*/
+
 	return (NULL);
 }
