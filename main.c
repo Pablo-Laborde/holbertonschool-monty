@@ -9,7 +9,7 @@
  */
 int main(int ac, char **av)
 {
-	FILE	*fd;
+	int		fd;
 	l_node	*l = NULL;
 
 	if (ac != 2)
@@ -19,7 +19,7 @@ int main(int ac, char **av)
 	}
 
 	/* open file ... or relocate code for open file: */
-	fd = open(av[1], O_RDONLY);
+	FILE *fd = open(av[1], O_RDONLY);
 	/*
 	if (fd == -1)
 	{
