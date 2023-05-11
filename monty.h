@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-                                /* structures */
+								/* structures */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -17,9 +17,9 @@
  */
 typedef struct stack_s
 {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -32,8 +32,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-    char *opcode;
-    void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -48,9 +48,9 @@ typedef struct word_list
 } l_node;
 
 
-                                /* variables */
+								/* variables */
 
 
-                                /* prototypes */
+								/* prototypes */
 
 #endif
