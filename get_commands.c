@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void (*get_op_func(char *str))
+int exec_cmd(stack_t **, char *cmd)
 {
 	int			i = 0;
 	fae_t		farr[] = {
