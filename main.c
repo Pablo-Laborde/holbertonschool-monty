@@ -11,6 +11,7 @@ int main(int ac, char **av)
 {
 	int		fd;
 	l_node	*l = NULL;
+	stack_t *s = NULL;
 
 	if (ac != 2)
 	{
@@ -52,4 +53,5 @@ l_node *cmds_inter(int fd)
 		return (NULL);
 	l = str_to_ll(buf, '\n');
 	return (l);
+	&s;
 }
