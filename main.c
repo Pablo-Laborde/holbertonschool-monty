@@ -15,7 +15,7 @@ int main(int ac, char **av)
         _exit(EXIT_FAILURE);
     }
 
-    // open file ... or relocate code:
+    // open file ... or relocate code for open file:
     if (fp == NULL)
     {
         fprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
