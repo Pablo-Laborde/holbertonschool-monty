@@ -19,7 +19,7 @@ int main(int ac, char **av)
 	}
 
 	/* open file ... or relocate code for open file: */
-	FILE *fd = open(av[1], O_RDONLY);
+	fd = fopen(av[1], O_RDONLY);
 	/*
 	if (fd == -1)
 	{
