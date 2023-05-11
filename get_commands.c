@@ -15,5 +15,13 @@ void (*get_op_func(char *str))
 			return (farr[i].f);
 			i++;
 	}
+	/* code for strcmp: (sin terminar) */
+	/*
+	if (!(op_codes[index].opcode))
+	{
+		fprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number, token[0]);
+		_exit(EXIT_FAILURE);
+	}
+	*/
 	return (NULL);
 }

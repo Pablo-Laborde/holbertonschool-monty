@@ -18,7 +18,6 @@ int main(int ac, char **av)
 		_exit(EXIT_FAILURE);
 	}
 
-	/* open file ... or relocate code for open file: */
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
@@ -29,14 +28,6 @@ int main(int ac, char **av)
 	l = cmds_inter(fd);
 	print_list(l);
 
-  /* code for strcmp: (sin terminar) */
-	/*
-	if (!(op_codes[index].opcode))
-	{
-		fprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number, token[0]);
-		_exit(EXIT_FAILURE);
-	}
-	*/
 	close(fd);
 	return (0);
 }
