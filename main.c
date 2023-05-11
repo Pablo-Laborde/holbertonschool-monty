@@ -42,8 +42,10 @@ int main(int ac, char **av)
 	return (0);
 }
 
+#define buffsize 1024
+
 /**
- * cmds_inter- reads input andtrans forms it into a list
+ * cmds_inter - reads input andtrans forms it into a list
  * @fd: stream to read
  * Return: list of commands
  */
