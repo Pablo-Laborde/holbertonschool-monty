@@ -23,7 +23,7 @@ int main(int ac, char **av)
 	/*
 	if (fd == -1)
 	{
-		fprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		_exit(EXIT_FAILURE);
 	}
 	*/
@@ -38,6 +38,7 @@ int main(int ac, char **av)
 		_exit(EXIT_FAILURE);
 	}
 	*/
+	fclose(fd);
 	return (0);
 }
 
