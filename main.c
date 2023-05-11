@@ -40,3 +40,23 @@ int main(int ac, char **av)
 	*/
 	return (0);
 }
+
+/**
+ * cmds_inter- reads input andtrans forms it into a list
+ * @fd: stream to read
+ * Return: list of commands
+ */
+l_node *cmds_inter(int fd)
+{
+	int     i;
+	char	buf[buffsize];
+	ssize_t bs;
+	l_node  *l = NULL;
+
+	bs = read(fd, buf, buffsize);
+	buf[bs] = '\0';
+	if (bs == -1)
+		return (NULL);
+	l = str_to_ll(buf, '\n');
+	return (l);
+}
