@@ -2,7 +2,10 @@
 #define MONTY_H
 
 #include <unistd.h>
+ #include <fcntl.h>
+ 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 								/* structures */
@@ -72,5 +75,13 @@ void (*get_op_func(char *str));
 /* op_functions.c */
 stack_t *op_push(stack_t *s, int val);
 void op_pal(stack_t *s);
+
+/* lists.c */
+l_node *cmds_inter(int fd);
+l_node *str_to_ll(char *buf, char dem);
+void add_end(l_node *l, l_node *a);
+void *free_list(l_node *l, int flag);
+int node_count(l_node *l);
+void print_list(l_node *l);
 
 #endif
