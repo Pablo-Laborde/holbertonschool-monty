@@ -21,7 +21,7 @@ int main(int ac, char **av)
         fprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
         _exit(EXIT_FAILURE);
     }
-    // code for strcmp:
+    // code for strcmp: (sin terminar)
     if (!(op_codes[index].opcode))
 	{
 		fprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number, token[0]);
