@@ -9,7 +9,7 @@
  */
 int main(int ac, char **av)
 {
-	int		*fd;
+	int		fd;
 	l_node	*l = NULL;
 
 	if (ac != 2)
