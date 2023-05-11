@@ -20,13 +20,12 @@ int main(int ac, char **av)
 
 	/* open file ... or relocate code for open file: */
 	fd = open(av[1], O_RDONLY);
-	/*
 	if (fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		_exit(EXIT_FAILURE);
 	}
-	*/
+	
 	l = cmds_inter(fd);
 	print_list(l);
 
