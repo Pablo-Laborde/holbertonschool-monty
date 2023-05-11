@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 
 								/* structures */
 
@@ -38,6 +39,7 @@ typedef struct instruction_s
 
 /**
  * struct word_list- a list of words
+ *
  * @str: the string
  * @next: next node
  */
@@ -47,10 +49,28 @@ typedef struct word_list
 	struct word_list *next;
 } l_node;
 
+/**
+* struct function_array_element- elemnt of a function array
+*
+* @func: name of function
+* @f: pointer to function
+*/
+typedef struct function_array_element
+{
+	char *func;
+	void *f;
+} fae_t;
+
 
 								/* variables */
 
 
 								/* prototypes */
+/* get_commands.c */
+void (*get_op_func(char *str));
+
+/* op_functions.c */
+stack_t *op_push(stack_t *s, int val);
+void op_pal(stack_t *s);
 
 #endif
