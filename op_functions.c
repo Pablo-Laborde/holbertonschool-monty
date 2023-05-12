@@ -2,21 +2,39 @@
 
 /**
 * op_push- adds an elemnt to hte stack
-* @s: pointer to stack
-* @val: value to add
-* Return: pointer to the head of the stack
+* @stack: pointer to stack
+* @line_number: as name says
+* Return: void
 */
-stack_t *op_push(stack_t *s, int val)
+void op_push(stack_t **stack, unsigned int line_number)
 {
-	return (NULL);
+	stack_t *nn = NULL;
+
+	nn = malloc(sizeof(stack_t));
+	if (nn)
+	{
+		if (*stack)
+			(*stack)->next = nn;
+		nn->n = value;
+		nn->prev = *stack;
+		nn->next = NULL;
+		*stack = nn;
+	}
 }
 
 /**
 * op_pal- prints all the elements in a stack
-* @s: pointer to stack
+* @stack: pointer to stack
+* @line_number: as name says
 * Return: void
 */
-void op_pal(stack_t *s)
+void op_pal(stack_t **stack, unsigned int line_number)
 {
-	return;
+	stack_t *aux = *stack;
+
+	while (aux)
+	{
+		printf("%d\n", aux->n);
+		aux = aux->prev;
+	}
 }

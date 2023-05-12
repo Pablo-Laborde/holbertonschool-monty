@@ -1,27 +1,36 @@
 #include "monty.h"
 
-int exec_cmd(stack_t **, char *cmd)
+/**
+* exec_cmd- executes the commands in the file
+* @stack: stack
+* @fd: file to read from
+* Return: void
+*/
+void exec_cmd(stack_t **stack, int fd)
 {
 	int			i = 0;
-	fae_t		farr[] = {
+	void (*f)(stack_t **, unsigned int) = NULL;
+}
+
+/**
+* get_func- looks for the correct function
+* @name: name of the function tobe loked
+* Return: function pointer if succesfull, NULL otherwise
+*/
+void (*get_func(char *name))(stack_t **, unsigned int)
+{
+	int			i = 0;
+	instruction_t	arr[] = {
 		{"push", op_push},
 		{"pal", op_pal},
 		{NULL, NULL}
 	};
 
-	while (farr[i].func)
+	while (arr[i].opcode)
 	{
-		if (strcmp(farr[i].func, str) == 0)
-			return (farr[i].f);
-			i++;
+		if (strcmp(arr[i].opcode, name))
+			return (arr[i].f);
+		i++;
 	}
-
-	/* error message for strcmp: (sin terminar) */
-	if ((farr[i].func) == 1)
-	{
-		fprintf(stderr, "L%u: unknown instruction %s\n", str, opcode); // change 'opcode' for correct parameter
-		_exit(EXIT_FAILURE);
-	}
-
 	return (NULL);
 }

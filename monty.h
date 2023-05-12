@@ -40,48 +40,20 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/**
- * struct word_list- a list of words
- *
- * @str: the string
- * @next: next node
- */
-typedef struct word_list
-{
-	char *str;
-	struct word_list *next;
-} l_node;
-
-/**
-* struct function_array_element- elemnt of a function array
-*
-* @func: name of function
-* @f: pointer to function
-*/
-typedef struct function_array_element
-{
-	char *func;
-	void *f;
-} fae_t;
-
-
 								/* variables */
 
+int value; /* value to push */
 
 								/* prototypes */
+
+/* main.c */
+
 /* get_commands.c */
-void (*get_op_func(char *str));
+void exec_cmd(stack_t **stack, int fd);
+void (*get_func(char *name))(stack_t **, unsigned int);
 
 /* op_functions.c */
-stack_t *op_push(stack_t *s, int val);
-void op_pal(stack_t *s);
-
-/* lists.c */
-l_node *cmds_inter(int fd);
-l_node *str_to_ll(char *buf, char dem);
-void add_end(l_node *l, l_node *a);
-void *free_list(l_node *l, int flag);
-int node_count(l_node *l);
-void print_list(l_node *l);
+void op_push(stack_t **stack, unsigned int line_number);
+void op_pal(stack_t **stack, unsigned int line_number);
 
 #endif
