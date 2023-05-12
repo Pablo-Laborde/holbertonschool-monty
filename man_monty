@@ -3,4 +3,8 @@
 
 ERROR OUTPUT
 
-    1: 
+    -1:     it’s not possible to open the file              > main.c            line 23
+    1:      If the file contains an invalid instruction     > get_commands.c    line 20
+
+
+    note: the other errors go in the functions.
