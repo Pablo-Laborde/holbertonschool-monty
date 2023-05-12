@@ -2,8 +2,7 @@
 #define MONTY_H
 
 #include <unistd.h>
-#include <fcntl.h>
- 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,7 +48,7 @@ int value; /* value to push */
 /* main.c */
 
 /* get_commands.c */
-void exec_cmd(stack_t **stack, int fd);
+void exec_cmd(stack_t **stack, FILE *file);
 void (*get_func(char *name))(stack_t **, unsigned int);
 
 /* op_functions.c */
