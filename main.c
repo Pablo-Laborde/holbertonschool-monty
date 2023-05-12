@@ -9,7 +9,7 @@
  */
 int main(int ac, char **av)
 {
-	int		fd;
+	FILE		*file = NULL;
 	stack_t *stack = NULL;
 
 	if (ac != 2)
@@ -18,13 +18,13 @@ int main(int ac, char **av)
 		_exit(EXIT_FAILURE);
 	}
 
-	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
+	file = fopen(av[1], "r");
+	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		_exit(EXIT_FAILURE);
 	}
-	exec_cmd(&stack, fd);
-	close(fd);
+	exec_cmd(&stack, file);
+	fclose(file);
 	return (0);
 }
