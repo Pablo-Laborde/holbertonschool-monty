@@ -17,7 +17,7 @@ int exec_cmd(stack_t **, char *cmd)
 	}
 
 	/* error message for strcmp: (sin terminar) */
-	if ((farr[i].func) == 1)
+	if (!(farr[i].func))
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", str, opcode);
 		_exit(EXIT_FAILURE);
