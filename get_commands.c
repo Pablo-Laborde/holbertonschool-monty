@@ -6,10 +6,25 @@
 * @fd: file to read from
 * Return: void
 */
-void exec_cmd(stack_t **stack, int fd)
+void exec_cmd(stack_t **stack, FILE *file)
 {
-	int			i = 0;
+	int						i;
+	unsigned int	line_number = 0;
+	char					*str = NULL,
+								*token = NULL;
+	size_t				len = 0;
 	void (*f)(stack_t **, unsigned int) = NULL;
+
+	value = 0;
+	while (getline(&str, &len, file) != -1)
+	{
+		token = str;
+		i = 0;
+		while (token[i] <= 32)
+			i++;
+		strtok(&token[i], " \t\n");
+		printf("%s\n", token);
+	}
 }
 
 /**
