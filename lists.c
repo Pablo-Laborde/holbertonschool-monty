@@ -1,7 +1,5 @@
 #include "monty.h"
 
-#define buffsize 1024
-
 /**
  * str_to_ll- makes a linked list of the substring
  * @buf: buffer where is the input
