@@ -66,6 +66,7 @@ void op_pint(stack_t **stack, unsigned int n)
 void op_pop(stack_t **stack, unsigned int n)
 {
 	(void)n;
+	stack_t *top;
 
 	if(!stack || !(*stack))
 	{
