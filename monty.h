@@ -39,6 +39,23 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct info_s- structure of data
+ * @file: file to read
+ * @stack: stack
+ * @line_number: as name says
+ * @str: line red
+ * @str_len: length of the line red
+ */
+typedef struct info_s
+{
+	FILE					*file;
+	stack_t				*stack;
+	unsigned int	line_number;
+	char					*str;
+	size_t				str_len;
+} info_t;
+
 								/* variables */
 
 int value; /* value to push */
@@ -46,10 +63,15 @@ int value; /* value to push */
 								/* prototypes */
 
 /* main.c */
+void init_info(info_t *info);
+
+/* fexit.c */
+void _exit_f(info_t *info);
+void free_stack(stack_t *stack);
 
 /* get_commands.c */
-void exec_cmd(stack_t **stack, FILE *file);
-void (*get_func(char *name, unsigned int n))(stack_t **, unsigned int);
+void exec_cmd(info_t *info);
+void (*get_func(char *name, info_t *info))(stack_t **, unsigned int);
 int check_number(char *str);
 
 /* op_functions.c */
