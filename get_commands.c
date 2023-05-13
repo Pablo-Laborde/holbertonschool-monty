@@ -9,17 +9,17 @@
 void exec_cmd(stack_t **stack, FILE *file)
 {
 	int						i;
-	/*unsigned int	line_number = 0;*/
+	unsigned int	line_number = 0;
 	char					*str = NULL,
 								*token = NULL;
 	size_t				len = 0;
 	void (*f)(stack_t **, unsigned int) = NULL;
-	(void)f;
-	(void)stack;
+	stack_t *aux;
 
 	value = 0;
 	while (getline(&str, &len, file) != -1)
 	{
+		line_number++;
 		token = str;
 		i = 0;
 		while (token[i] && token[i] <= 32)
@@ -27,6 +27,9 @@ void exec_cmd(stack_t **stack, FILE *file)
 		f = get_func(token);
 		free(str);
 		str = NULL;
+		if (f)
+			f(stack, line_number);
+		f = NULL;
 	}
 }
 
@@ -49,10 +52,10 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 		{"nop", op_nop},
 		{NULL, NULL}
 	};
+
 	if (name)
 	{
 		val = strtok(name, " \t\n");
-		printf("%s\n", val);
 		while (arr[i].opcode)
 		{
 			if (!strcmp(arr[i].opcode, val))
@@ -60,8 +63,9 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 				if (i == 0)
 				{
 					val = strtok(NULL, " \t\n");
-					if (!)
-					printf("%s\n", value);
+					if (check_number(val))
+						return (NULL);
+					value = atoi(val);
 				}
 				return (arr[i].f);
 			}
@@ -71,5 +75,25 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 	return (NULL);
 }
 
+/**
+* check_number- check if str is a number
+* @str: string to be checked
+* Return: 0 if true, 1 if false
+*/
 int check_number(char *str)
-{}
+{
+	int	i = 0, flag = 0;
+
+	if (!str)
+		return (1);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+		{
+			flag = 1;
+			break;
+		}
+		i++;
+	}
+	return (flag);
+}
