@@ -31,6 +31,7 @@ void exec_cmd(stack_t **stack, FILE *file)
 			f(stack, line_number);
 		f = NULL;
 	}
+	free(str);
 }
 
 /**
