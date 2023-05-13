@@ -77,6 +77,8 @@ void (*get_func(char *name, unsigned int n))(stack_t **, unsigned int)
 			i++;
 		}
 	}
+	fprintf(stderr, "L%u: unknown instruction %s\n", n, val);
+	_exit(EXIT_FAILURE);
 	return (NULL);
 }
 
