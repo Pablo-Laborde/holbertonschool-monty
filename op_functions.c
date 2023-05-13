@@ -49,9 +49,9 @@ void op_pal(stack_t **stack, unsigned int line_number)
 */
 void op_pint(stack_t **stack, unsigned int n)
 {
-	if(!stack || !(*stack))
+	if (!stack || !(*stack))
 	{
-	fprintf(stderr, "L%d: can't pint, stack empty\n", n);
+	fprintf(stderr, "L%u: can't pint, stack empty\n", n);
 	_exit(EXIT_FAILURE);
 	}
 	fprintf(stdout, "%d", (*stack)->n);
@@ -68,9 +68,9 @@ void op_pop(stack_t **stack, unsigned int n)
 	(void)n;
 	stack_t *top;
 
-	if(!stack || !(*stack))
+	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", n);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", n);
 		_exit(EXIT_FAILURE);
 	}
 	top = *stack;
@@ -99,11 +99,27 @@ void op_swap(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		_exit(EXIT_FAILURE);
 	}
 
 	temp = (*stack)->next->n;
 	(*stack)->next->n = (*stack)->n;
 	(*stack)->n = temp;
+}
+
+/**
+* op_add -  adds the top two elements of the stack
+* @stack: pointer to stack
+* @line_number: as name says
+* Return: void
+*/
+void op_add(stack_t **stack, unsigned int line_number)
+{
+	if (!stack || !(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short", line_number);
+		_exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n = ((*stack)->next->n) + ((*stack)->n);
 }
