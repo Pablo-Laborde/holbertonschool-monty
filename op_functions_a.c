@@ -25,12 +25,12 @@ void op_push(stack_t **stack, unsigned int line_number)
 }
 
 /**
-* op_pal- prints all the elements in a stack
+* op_pall- prints all the elements in a stack
 * @stack: pointer to stack
 * @line_number: as name says
 * Return: void
 */
-void op_pal(stack_t **stack, unsigned int line_number)
+void op_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = *stack;
 	(void)line_number;
