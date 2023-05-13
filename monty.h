@@ -50,12 +50,13 @@ int value; /* value to push */
 /* get_commands.c */
 void exec_cmd(stack_t **stack, FILE *file);
 void (*get_func(char *name))(stack_t **, unsigned int);
+int check_number(char *str);
 
 /* op_functions.c */
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pal(stack_t **stack, unsigned int line_number);
-void op_pint(stack_t **stack, unsigned int n);
-void op_pop(stack_t **stack, unsigned int n);
+void op_pint(stack_t **stack, unsigned int line_number);
+void op_pop(stack_t **stack, unsigned int line_number);
 void op_swap(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack, unsigned int line_number);
