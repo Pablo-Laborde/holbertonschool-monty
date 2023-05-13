@@ -41,6 +41,7 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 		{"push", op_push},
 		{"pal", op_pal},
 		{"pint", op_pint},
+		{"pop", op_pop},
 		{NULL, NULL}
 	};
 

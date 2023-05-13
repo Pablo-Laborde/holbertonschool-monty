@@ -47,7 +47,6 @@ void op_pal(stack_t **stack, unsigned int line_number)
 * @line_number: as name says
 * Return: void
 */
-
 void op_pint(stack_t **stack, unsigned int n)
 {
 	if(!stack || !(*stack))
@@ -56,4 +55,32 @@ void op_pint(stack_t **stack, unsigned int n)
 	_exit(EXIT_FAILURE);
 	}
 	fprintf(stdout, "%d", (*stack)->n);
+}
+
+/**
+* op_pint - prints the value at the top of the stack
+* @stack: pointer to stack
+* @line_number: as name says
+* Return: void
+*/
+void op_pop(stack_t **stack, unsigned int n)
+{
+	(void)n;
+
+	if(!stack || !(*stack))
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack", n);
+		_exit(EXIT_FAILURE);
+	}
+	top = *stack;
+
+	if((*stack)->next)
+	{
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+	}
+	else
+		*stack = NULL;
+
+	free(top);
 }
