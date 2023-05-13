@@ -18,7 +18,8 @@ void exec_cmd(info_t *info)
 		i = 0;
 		while (token[i] && token[i] <= 32)
 			token = &token[i + 1];
-		f = get_func(token, info);
+		if (token[i])
+			f = get_func(token, info);
 		free(info->str);
 		info->str = NULL;
 		if (f)
@@ -63,6 +64,7 @@ void (*get_func(char *name, info_t *info))(stack_t **, unsigned int)
 					if (check_number(val))
 					{
 						fprintf(stderr, "L%u: usage: push integer\n", info->line_number);
+						info->exit_mode = 1;
 						_exit_f(info);
 					}
 					info->push_val = atoi(val);
@@ -73,6 +75,7 @@ void (*get_func(char *name, info_t *info))(stack_t **, unsigned int)
 		}
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", info->line_number, val);
+	info->exit_mode = 1;
 	_exit_f(info);
 	return (NULL);
 }
