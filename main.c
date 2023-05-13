@@ -14,7 +14,7 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		fprintf(stderr, "USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file\n");
 		_exit(EXIT_FAILURE);
 	}
 
