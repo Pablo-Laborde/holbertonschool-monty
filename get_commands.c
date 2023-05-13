@@ -3,7 +3,7 @@
 /**
 * exec_cmd- executes the commands in the file
 * @stack: stack
-* @fd: file to read from
+* @file: file to read from
 * Return: void
 */
 void exec_cmd(stack_t **stack, FILE *file)
