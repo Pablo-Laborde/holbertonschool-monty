@@ -9,11 +9,13 @@
 void exec_cmd(stack_t **stack, FILE *file)
 {
 	int						i;
-	unsigned int	line_number = 0;
+	//unsigned int	line_number = 0;
 	char					*str = NULL,
 								*token = NULL;
 	size_t				len = 0;
 	void (*f)(stack_t **, unsigned int) = NULL;
+	(void)f;
+	(void)stack;
 
 	value = 0;
 	while (getline(&str, &len, file) != -1)

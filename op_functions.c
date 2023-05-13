@@ -9,6 +9,7 @@
 void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nn = NULL;
+	(void)line_number;
 
 	nn = malloc(sizeof(stack_t));
 	if (nn)
@@ -31,6 +32,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 void op_pal(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = *stack;
+	(void)line_number;
 
 	while (aux)
 	{
