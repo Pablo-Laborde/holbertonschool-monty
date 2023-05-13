@@ -13,15 +13,17 @@ void op_push(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	nn = malloc(sizeof(stack_t));
-	if (nn)
+	if (!nn)
 	{
-		if (*stack)
-			(*stack)->next = nn;
-		nn->n = value;
-		nn->prev = *stack;
-		nn->next = NULL;
-		*stack = nn;
+		fprintf(stderr, "Error: malloc failed\n");
+		_exit(EXIT_FAILURE);
 	}
+	if (*stack)
+		(*stack)->next = nn;
+	nn->n = value;
+	nn->prev = *stack;
+	nn->next = NULL;
+	*stack = nn;
 }
 
 /**
