@@ -57,14 +57,14 @@ void (*get_func(char *name, unsigned int n))(stack_t **, unsigned int)
 
 	if (name)
 	{
-		val = strtok(name, " \t\n");
+		val = strtok(name, " \t\n$");
 		while (arr[i].opcode)
 		{
 			if (!strcmp(arr[i].opcode, val))
 			{
 				if (i == 0)
 				{
-					val = strtok(NULL, " \t\n");
+					val = strtok(NULL, " \t\n$");
 					if (check_number(val))
 					{
 						fprintf(stderr, "L%u: usage: push integer\n", n);
