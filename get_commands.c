@@ -38,6 +38,7 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 	instruction_t	arr[] = {
 		{"push", op_push},
 		{"pal", op_pal},
+		{"pint", op_pint},
 		{NULL, NULL}
 	};
 
