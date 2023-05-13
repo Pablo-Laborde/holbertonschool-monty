@@ -48,12 +48,12 @@ void op_pal(stack_t **stack, unsigned int line_number)
 * Return: void
 */
 
-void op_pint(stack_t **stack, unsigned int line_number)
+void op_pint(stack_t **stack, unsigned int n)
 {
 	if(!stack || !(*stack))
 	{
-	fprintf(stderr, "L<line_number>: can't pint, stack empty\n", n);
+	fprintf(stderr, "L%d: can't pint, stack empty\n", n);
 	_exit(EXIT_FAILURE);
 	}
-	fprintf(stdout, "%d", stack->n);
+	fprintf(stdout, "%d", (*stack)->n);
 }
