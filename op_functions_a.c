@@ -66,7 +66,6 @@ void op_pint(stack_t **stack, unsigned int line_number)
 */
 void op_pop(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *top;
 
 	if (!stack || !(*stack))
@@ -75,15 +74,9 @@ void op_pop(stack_t **stack, unsigned int line_number)
 		_exit(EXIT_FAILURE);
 	}
 	top = *stack;
-
-	if ((*stack)->next)
-	{
-		*stack = (*stack)->next;
-		(*stack)->prev = NULL;
-	}
-	else
-		*stack = NULL;
-
+	*stack = (*stack)->prev;
+	if (*stack)
+		(*stack)->next = NULL;
 	free(top);
 }
 
