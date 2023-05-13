@@ -49,7 +49,7 @@ int value; /* value to push */
 
 /* get_commands.c */
 void exec_cmd(stack_t **stack, FILE *file);
-void (*get_func(char *name))(stack_t **, unsigned int);
+void (*get_func(char *name, unsigned int n))(stack_t **, unsigned int);
 int check_number(char *str);
 
 /* op_functions.c */

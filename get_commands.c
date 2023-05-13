@@ -37,10 +37,10 @@ void exec_cmd(stack_t **stack, FILE *file)
 /**
 * get_func- looks for the correct function
 * @name: name of the function tobe loked
-* @line_number: as name says
+* @n: as name says
 * Return: function pointer if succesfull, NULL otherwise
 */
-void (*get_func(char *name, unsigned int line_number))(stack_t **, unsigned int)
+void (*get_func(char *name, unsigned int n))(stack_t **, unsigned int)
 {
 	int			i = 0;
 	char		*val = NULL;
@@ -67,7 +67,7 @@ void (*get_func(char *name, unsigned int line_number))(stack_t **, unsigned int)
 					val = strtok(NULL, " \t\n");
 					if (check_number(val))
 					{
-						fprintf(stderr, "L%u: usage: push integer\n", line_number);
+						fprintf(stderr, "L%u: usage: push integer\n", n);
 						_exit(EXIT_FAILURE);
 					}
 					value = atoi(val);
