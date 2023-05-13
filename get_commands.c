@@ -20,10 +20,11 @@ void exec_cmd(stack_t **stack, FILE *file)
 	{
 		token = str;
 		i = 0;
-		while (token[i] <= 32)
-			i++;
-		strtok(&token[i], " \t\n");
-		printf("%s\n", token);
+		while (token[i] && token[i] <= 32)
+			token = &token[i + 1];
+		f = get_func(token);
+		free(str);
+		str = NULL;
 	}
 }
 
@@ -35,17 +36,33 @@ void exec_cmd(stack_t **stack, FILE *file)
 void (*get_func(char *name))(stack_t **, unsigned int)
 {
 	int			i = 0;
+	char		*val = NULL;
 	instruction_t	arr[] = {
 		{"push", op_push},
 		{"pal", op_pal},
 		{NULL, NULL}
 	};
-
-	while (arr[i].opcode)
+	if (name)
 	{
-		if (strcmp(arr[i].opcode, name))
-			return (arr[i].f);
-		i++;
+		val = strtok(name, " \t\n");
+		printf("%s\n", val);
+		while (arr[i].opcode)
+		{
+			if (!strcmp(arr[i].opcode, val))
+			{
+				if (i == 0)
+				{
+					val = strtok(NULL, " \t\n");
+					if (!)
+					printf("%s\n", value);
+				}
+				return (arr[i].f);
+			}
+			i++;
+		}
 	}
 	return (NULL);
 }
+
+int check_number(char *str)
+{}
