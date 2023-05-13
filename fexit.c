@@ -11,7 +11,10 @@ void _exit_f(info_t *info)
 	free(info->str);
 	if (info->file)
 		fclose(info->file);
-	_exit(EXIT_FAILURE);
+	if (!info->exit_mode)
+		_exit(EXIT_SUCCESS);
+	else
+		_exit(EXIT_FAILURE);
 }
 
 /**

@@ -16,11 +16,11 @@ void op_push(stack_t **stack, unsigned int line_number)
 	if (!nn)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		_exit(EXIT_FAILURE);
+		_exit_f(&info);
 	}
 	if (*stack)
 		(*stack)->next = nn;
-	nn->n = value;
+	nn->n = info.push_val;
 	nn->prev = *stack;
 	nn->next = NULL;
 	*stack = nn;

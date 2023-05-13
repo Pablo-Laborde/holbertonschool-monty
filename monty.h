@@ -52,13 +52,15 @@ typedef struct info_s
 	FILE					*file;
 	stack_t				*stack;
 	unsigned int	line_number;
+	int						push_val;
 	char					*str;
 	size_t				str_len;
+	int						exit_mode;
 } info_t;
 
 								/* variables */
 
-int value; /* value to push */
+info_t info;
 
 								/* prototypes */
 

@@ -11,7 +11,6 @@ void exec_cmd(info_t *info)
 	char					*token = NULL;
 	void (*f)(stack_t **, unsigned int) = NULL;
 
-	value = 0;
 	while (getline(&(info->str), &(info->str_len), info->file) != -1)
 	{
 		info->line_number++;
@@ -27,6 +26,7 @@ void exec_cmd(info_t *info)
 		f = NULL;
 	}
 	free(info->str);
+	info->str = NULL;
 }
 
 /**
@@ -65,7 +65,7 @@ void (*get_func(char *name, info_t *info))(stack_t **, unsigned int)
 						fprintf(stderr, "L%u: usage: push integer\n", info->line_number);
 						_exit_f(info);
 					}
-					value = atoi(val);
+					info->push_val = atoi(val);
 				}
 				return (arr[i].f);
 			}

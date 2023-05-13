@@ -9,8 +9,6 @@
  */
 int main(int ac, char **av)
 {
-	info_t	info;
-
 	init_info(&info);
 	if (ac != 2)
 	{
@@ -24,8 +22,7 @@ int main(int ac, char **av)
 		_exit_f(&info);
 	}
 	exec_cmd(&info);
-	fclose(info.file);
-	return (0);
+	_exit_f(&info);
 }
 
 /**
@@ -38,6 +35,8 @@ void init_info(info_t *info)
 	info->file = NULL;
 	info->stack = NULL;
 	info->line_number = 0;
+	info->push_val = 0;
 	info->str = NULL;
 	info->str_len = 0;
+	info->exit_mode = 0;
 }
