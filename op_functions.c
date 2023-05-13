@@ -47,7 +47,7 @@ void op_pal(stack_t **stack, unsigned int line_number)
 * @line_number: as name says
 * Return: void
 */
-/*
+
 void op_pint(stack_t **stack, unsigned int line_number)
 {
 	if(!stack || !(*stack))
@@ -57,4 +57,3 @@ void op_pint(stack_t **stack, unsigned int line_number)
 	}
 	fprintf(stdout, "%d", stack->n);
 }
-*/
