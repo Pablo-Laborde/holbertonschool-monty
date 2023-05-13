@@ -44,7 +44,7 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 	char		*val = NULL;
 	instruction_t	arr[] = {
 		{"push", op_push},
-		{"pal", op_pal},
+		{"pall", op_pall},
 		{"pint", op_pint},
 		{"pop", op_pop},
 		{"swap", op_swap},
