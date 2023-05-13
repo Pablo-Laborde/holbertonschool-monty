@@ -123,3 +123,15 @@ void op_add(stack_t **stack, unsigned int line_number)
 	}
 	(*stack)->next->n = ((*stack)->next->n) + ((*stack)->n);
 }
+
+/**
+* op_nop - doesn’t do anything
+* @stack: pointer to stack
+* @line_number: as name says
+* Return: void
+*/
+void op_nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
