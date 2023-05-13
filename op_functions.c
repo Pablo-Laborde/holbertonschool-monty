@@ -1,5 +1,6 @@
 #include "monty.h"
 
+
 /**
 * op_push- adds an elemnt to hte stack
 * @stack: pointer to stack
@@ -44,14 +45,14 @@ void op_pal(stack_t **stack, unsigned int line_number)
 /**
 * op_pint - prints the value at the top of the stack
 * @stack: pointer to stack
-* @n: as name says
+* @line_number: as name says
 * Return: void
 */
-void op_pint(stack_t **stack, unsigned int n)
+void op_pint(stack_t **stack, unsigned int line_number)
 {
 	if (!stack || !(*stack))
 	{
-	fprintf(stderr, "L%u: can't pint, stack empty\n", n);
+	fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 	_exit(EXIT_FAILURE);
 	}
 	fprintf(stdout, "%d", (*stack)->n);
@@ -60,17 +61,17 @@ void op_pint(stack_t **stack, unsigned int n)
 /**
 * op_pop - removes the top element of the stack
 * @stack: pointer to stack
-* @n: as name says
+* @line_number: as name says
 * Return: void
 */
-void op_pop(stack_t **stack, unsigned int n)
+void op_pop(stack_t **stack, unsigned int line_number)
 {
-	(void)n;
+	(void)line_number;
 	stack_t *top;
 
 	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", n);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		_exit(EXIT_FAILURE);
 	}
 	top = *stack;
