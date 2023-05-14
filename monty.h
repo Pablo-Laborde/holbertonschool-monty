@@ -44,8 +44,10 @@ typedef struct instruction_s
  * @file: file to read
  * @stack: stack
  * @line_number: as name says
+ * @push_val: value to push into the stack
  * @str: line red
  * @str_len: length of the line red
+ * @exit_mode: status of exit
  */
 typedef struct info_s
 {
@@ -65,7 +67,7 @@ info_t info;
 								/* prototypes */
 
 /* main.c */
-void init_info();
+void init_info(void);
 
 /* fexit.c */
 void _exit_f(int mode);

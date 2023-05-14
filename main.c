@@ -29,7 +29,7 @@ int main(int ac, char **av)
  * init_info- nulls info pointers
  * Return: void
  */
-void init_info()
+void init_info(void)
 {
 	info.file = NULL;
 	info.stack = NULL;
