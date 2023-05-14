@@ -9,7 +9,7 @@
  */
 int main(int ac, char **av)
 {
-	init_info(&info);
+	init_info();
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -27,16 +27,15 @@ int main(int ac, char **av)
 
 /**
  * init_info- nulls info pointers
- * @info: structure to null data
  * Return: void
  */
-void init_info(info_t *info)
+void init_info()
 {
-	info->file = NULL;
-	info->stack = NULL;
-	info->line_number = 0;
-	info->push_val = 0;
-	info->str = NULL;
-	info->str_len = 0;
-	info->exit_mode = 0;
+	info.file = NULL;
+	info.stack = NULL;
+	info.line_number = 0;
+	info.push_val = 0;
+	info.str = NULL;
+	info.str_len = 0;
+	info.exit_mode = 0;
 }

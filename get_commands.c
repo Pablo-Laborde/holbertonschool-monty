@@ -87,6 +87,8 @@ int check_number(char *str)
 
 	if (!str)
 		return (1);
+	if (str[0] == '-')
+		i = 1;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')

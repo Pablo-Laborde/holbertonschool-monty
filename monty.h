@@ -65,7 +65,7 @@ info_t info;
 								/* prototypes */
 
 /* main.c */
-void init_info(info_t *info);
+void init_info();
 
 /* fexit.c */
 void _exit_f(int mode);
