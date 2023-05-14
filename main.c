@@ -22,7 +22,7 @@ int main(int ac, char **av)
 		_exit_f(1);
 	}
 	exec_cmd();
-	_exit_f(0);
+	return (0);
 }
 
 /**

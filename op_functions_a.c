@@ -50,7 +50,7 @@ void op_pall(stack_t **stack, unsigned int line_number)
 * @line_number: as name says
 * Return: void
 */
-void op_pint(stack_t **stack, unsigned int line_number)
+/*void op_pint(stack_t **stack, unsigned int line_number)
 {
 	if (!stack || !(*stack))
 	{
@@ -66,7 +66,7 @@ void op_pint(stack_t **stack, unsigned int line_number)
 * @line_number: as name says
 * Return: void
 */
-void op_pop(stack_t **stack, unsigned int line_number)
+/*void op_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top;
 
@@ -88,7 +88,7 @@ void op_pop(stack_t **stack, unsigned int line_number)
 * @line_number: as name says
 * Return: void
 */
-void op_swap(stack_t **stack, unsigned int line_number)
+/*void op_swap(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	int temp = 0;
