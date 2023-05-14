@@ -58,7 +58,7 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 			{
 				if (i == 0)
 				{
-					val = strtok(NULL, " \t\n$");
+					val = strtok(NULL, " \n\t$");
 					if (check_number(val))
 					{
 						fprintf(stderr, "L%u: usage: push integer\n", info.line_number);

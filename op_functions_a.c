@@ -39,7 +39,7 @@ void op_pall(stack_t **stack, unsigned int line_number)
 
 	while (aux)
 	{
-		printf("%d\n", aux->n);
+		fprintf(stdout, "%d\n", aux->n);
 		aux = aux->prev;
 	}
 }
