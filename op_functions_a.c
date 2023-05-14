@@ -16,7 +16,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	if (!nn)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		_exit_f(&info);
+		_exit_f(1);
 	}
 	if (*stack)
 		(*stack)->next = nn;

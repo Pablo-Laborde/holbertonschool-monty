@@ -2,41 +2,39 @@
 
 /**
  * exec_cmd- executes the commands in the file
- * @info: struct of data
  * Return: void
  */
-void exec_cmd(info_t *info)
+void exec_cmd(void)
 {
 	int						i;
 	char					*token = NULL;
 	void (*f)(stack_t **, unsigned int) = NULL;
 
-	while (getline(&(info->str), &(info->str_len), info->file) != -1)
+	while (getline(&(info.str), &(info.str_len), info.file) != -1)
 	{
-		info->line_number++;
-		token = info->str;
+		info.line_number++;
+		token = info.str;
 		i = 0;
 		while (token[i] && token[i] <= 32)
 			token = &token[i + 1];
 		if (token[i])
-			f = get_func(token, info);
-		free(info->str);
-		info->str = NULL;
+			f = get_func(token);
+		free(info.str);
+		info.str = NULL;
 		if (f)
-			f(&(info->stack), info->line_number);
+			f(&(info.stack), info.line_number);
 		f = NULL;
 	}
-	free(info->str);
-	info->str = NULL;
+	free(info.str);
+	info.str = NULL;
 }
 
 /**
  * get_func- looks for the correct function
  * @name: name of the function tobe loked
- * @info: struct of data
  * Return: function pointer if succesfull, NULL otherwise
  */
-void (*get_func(char *name, info_t *info))(stack_t **, unsigned int)
+void (*get_func(char *name))(stack_t **, unsigned int)
 {
 	int			i = 0;
 	char		*val = NULL;
@@ -63,20 +61,18 @@ void (*get_func(char *name, info_t *info))(stack_t **, unsigned int)
 					val = strtok(NULL, " \t\n$");
 					if (check_number(val))
 					{
-						fprintf(stderr, "L%u: usage: push integer\n", info->line_number);
-						info->exit_mode = 1;
-						_exit_f(info);
+						fprintf(stderr, "L%u: usage: push integer\n", info.line_number);
+						_exit_f(1);
 					}
-					info->push_val = atoi(val);
+					info.push_val = atoi(val);
 				}
 				return (arr[i].f);
 			}
 			i++;
 		}
 	}
-	fprintf(stderr, "L%u: unknown instruction %s\n", info->line_number, val);
-	info->exit_mode = 1;
-	_exit_f(info);
+	fprintf(stderr, "L%u: unknown instruction %s\n", info.line_number, val);
+	_exit_f(1);
 	return (NULL);
 }
 

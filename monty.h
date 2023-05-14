@@ -68,12 +68,12 @@ info_t info;
 void init_info(info_t *info);
 
 /* fexit.c */
-void _exit_f(info_t *info);
-void free_stack(stack_t *stack);
+void _exit_f(int mode);
+void free_stack(void);
 
 /* get_commands.c */
-void exec_cmd(info_t *info);
-void (*get_func(char *name, info_t *info))(stack_t **, unsigned int);
+void exec_cmd(void);
+void (*get_func(char *name))(stack_t **, unsigned int);
 int check_number(char *str);
 
 /* op_functions.c */

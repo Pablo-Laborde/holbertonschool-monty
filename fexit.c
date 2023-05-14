@@ -2,16 +2,17 @@
 
 /**
  * _exit_f- exits the program
- * @info: contains all the info to exit successfully
+ * @mode: contains all the info to exit successfully
  * Return: void
  */
-void _exit_f(info_t *info)
+void _exit_f(int mode)
 {
-	free_stack(info->stack);
-	free(info->str);
-	if (info->file)
-		fclose(info->file);
-	if (!info->exit_mode)
+	info.exit_mode = mode;
+	free_stack();
+	free(info.str);
+	if (info.file)
+		fclose(info.file);
+	if (!info.exit_mode)
 		_exit(EXIT_SUCCESS);
 	else
 		_exit(EXIT_FAILURE);
@@ -19,14 +20,13 @@ void _exit_f(info_t *info)
 
 /**
  * free_stack- frees a stack
- * @stack: stack to be freed
  * Return: void
  */
-void free_stack(stack_t *stack)
+void free_stack(void)
 {
-	stack_t	*a1 = stack, *a2 = a1;
+	stack_t	*a1 = info.stack, *a2 = a1;
 
-	if (stack)
+	if (a1)
 	{
 		while (a2)
 		{
