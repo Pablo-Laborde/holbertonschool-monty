@@ -12,7 +12,7 @@ void op_add(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->prev)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		_exit_f(1);
 	}
 	aux = *stack;
