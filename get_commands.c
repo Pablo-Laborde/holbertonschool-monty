@@ -17,7 +17,7 @@ void exec_cmd(void)
 		i = 0;
 		while (token[i] && token[i] <= 32)
 			token = &token[i + 1];
-		if (token[i])
+		if (token[i] && token[i] != '#')
 			f = get_func(token);
 		free(info.str);
 		info.str = NULL;
@@ -46,6 +46,10 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 		{"swap", op_swap},
 		{"add", op_add},
 		{"nop", op_nop},
+		{"sub", op_sub},
+		{"div", op_div},
+		{"mul", op_mul},
+		{"mod", op_mod},
 		{NULL, NULL}
 	};
 
