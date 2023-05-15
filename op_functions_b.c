@@ -8,12 +8,18 @@
 */
 void op_add(stack_t **stack, unsigned int line_number)
 {
-	if (!stack || !(*stack) || !(*stack)->next)
+	stack_t *aux = NULL;
+
+	if (!stack || !(*stack) || !(*stack)->prev)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short", line_number);
-		_exit(EXIT_FAILURE);
+		_exit_f(1);
 	}
-	(*stack)->next->n = ((*stack)->next->n) + ((*stack)->n);
+	aux = *stack;
+	aux->prev->n += aux->n;
+	*stack = aux->prev;
+	(*stack)->next = NULL;
+	free(aux);
 }
 
 /**
