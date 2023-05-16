@@ -60,7 +60,7 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 	int n;
 
 	(void)line_number;
-	if (stack)
+	if (stack && *stack)
 	{
 		aux = *stack;
 		n = aux->n;
