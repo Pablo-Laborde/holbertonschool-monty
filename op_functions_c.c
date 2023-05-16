@@ -73,12 +73,12 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 }
 
 /**
-* op_rot1 -  adds the top two elements of the stack
+* op_rotl -  adds the top two elements of the stack
 * @stack: pointer to stack
 * @line_number: as name says
 * Return: void
 */
-void op_rot1(stack_t **stack, unsigned int line_number)
+void op_rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *a0 = NULL, *a1 = NULL, *a2 = NULL;
 
