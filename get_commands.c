@@ -59,7 +59,7 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 					val = strtok(NULL, " \n\t$");
 					if (check_number(val))
 					{
-						fprintf(stderr, "L%u: usage: push integer\n", info.line_number);
+						dprintf(STDERR_FILENO, "L%u: usage: push integer\n", info.line_number);
 						_exit_f(1);
 					}
 					info.push_val = atoi(val);
@@ -69,7 +69,7 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 			i++;
 		}
 	}
-	fprintf(stderr, "L%u: unknown instruction %s\n", info.line_number, val);
+	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", info.line_number, val);
 	_exit_f(1);
 	return (NULL);
 }

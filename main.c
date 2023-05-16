@@ -12,13 +12,13 @@ int main(int ac, char **av)
 	init_info();
 	if (ac != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
+		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		_exit_f(1);
 	}
 	info.file = fopen(av[1], "r");
 	if (!info.file)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", av[1]);
 		_exit_f(1);
 	}
 	exec_cmd();

@@ -12,12 +12,12 @@ void op_mod(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->prev)
 	{
-		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't mod, stack too short\n", line_number);
 		_exit_f(1);
 	}
 	if ((*stack)->n == 0)
 	{
-		fprintf(stderr, "L%u: division by zero\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: division by zero\n", line_number);
 		_exit_f(1);
 	}
 	aux = *stack;
@@ -37,15 +37,15 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 {
 	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pchar, stack empty\n", line_number);
 		_exit_f(1);
 	}
 	if ((*stack)->n > 127 || (*stack)->n < -128)
 	{
-		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pchar, value out of range\n", line_number);
 		_exit_f(1);
 	}
-	fprintf(stdout, "%c\n", (*stack)->n);
+	dprintf(STDOUT_FILENO, "%c\n", (*stack)->n);
 }
 
 /**
@@ -64,12 +64,12 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 	n = aux->n;
 	while (aux && n != 0 && n <= 127 && n >= -128)
 	{
-		fprintf(stdout, "%c", n);
+		dprintf(STDOUT_FILENO, "%c", n);
 		aux = aux->prev;
 		if (aux)
 			n = aux->n;
 	}
-	fprintf(stdout, "\n");
+	dprintf(STDOUT_FILENO, "\n");
 }
 
 /**

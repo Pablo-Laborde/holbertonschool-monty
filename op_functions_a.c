@@ -15,7 +15,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	nn = malloc(sizeof(stack_t));
 	if (!nn)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		_exit_f(1);
 	}
 	if (*stack)
@@ -39,7 +39,7 @@ void op_pall(stack_t **stack, unsigned int line_number)
 
 	while (aux)
 	{
-		fprintf(stdout, "%d\n", aux->n);
+		dprintf(STDOUT_FILENO, "%d\n", aux->n);
 		aux = aux->prev;
 	}
 }
@@ -54,7 +54,7 @@ void op_pint(stack_t **stack, unsigned int line_number)
 {
 	if (!stack || !(*stack))
 	{
-	fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+	dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line_number);
 	_exit_f(1);
 	}
 	fprintf(stdout, "%d\n", (*stack)->n);
@@ -72,7 +72,7 @@ void op_pop(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line_number);
 		_exit_f(1);
 	}
 	top = *stack;
@@ -94,7 +94,7 @@ void op_swap(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->prev)
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n", line_number);
 		_exit_f(1);
 	}
 

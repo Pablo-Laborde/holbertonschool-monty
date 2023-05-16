@@ -12,7 +12,7 @@ void op_add(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->prev)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n", line_number);
 		_exit_f(1);
 	}
 	aux = *stack;
@@ -46,7 +46,7 @@ void op_sub(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->prev)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't sub, stack too short\n", line_number);
 		_exit_f(1);
 	}
 	aux = *stack;
@@ -68,12 +68,12 @@ void op_div(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->prev)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't sub, stack too short\n", line_number);
 		_exit_f(1);
 	}
 	if ((*stack)->n == 0)
 	{
-		fprintf(stderr, "L%u: division by zero\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: division by zero\n", line_number);
 		_exit_f(1);
 	}
 	aux = *stack;
@@ -95,7 +95,7 @@ void op_mul(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->prev)
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't mul, stack too short\n", line_number);
 		_exit_f(1);
 	}
 	aux = *stack;
