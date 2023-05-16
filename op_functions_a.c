@@ -57,7 +57,7 @@ void op_pint(stack_t **stack, unsigned int line_number)
 	dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line_number);
 	_exit_f(1);
 	}
-	fprintf(stdout, "%d\n", (*stack)->n);
+	dprintf(STDOUT_FILENO, "%d\n", (*stack)->n);
 }
 
 /**
