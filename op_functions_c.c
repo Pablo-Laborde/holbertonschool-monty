@@ -40,7 +40,7 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 		dprintf(STDERR_FILENO, "L%u: can't pchar, stack empty\n", line_number);
 		_exit_f(1);
 	}
-	if ((*stack)->n > 127 || (*stack)->n < -128)
+	if ((*stack)->n > 127 || (*stack)->n < 0)
 	{
 		dprintf(2, "L%u: can't pchar, value out of range\n", line_number);
 		_exit_f(1);
@@ -62,7 +62,7 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	aux = *stack;
 	n = aux->n;
-	while (aux && n != 0 && n <= 127 && n >= -128)
+	while (aux && n > 0 && n <= 127)
 	{
 		dprintf(STDOUT_FILENO, "%c", n);
 		aux = aux->prev;
