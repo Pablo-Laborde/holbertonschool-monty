@@ -60,14 +60,17 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 	int n;
 
 	(void)line_number;
-	aux = *stack;
-	n = aux->n;
-	while (aux && n > 0 && n <= 127)
+	if (stack)
 	{
-		dprintf(STDOUT_FILENO, "%c", n);
-		aux = aux->prev;
-		if (aux)
-			n = aux->n;
+		aux = *stack;
+		n = aux->n;
+		while (aux && n > 0 && n <= 127)
+		{
+			dprintf(STDOUT_FILENO, "%c", n);
+			aux = aux->prev;
+			if (aux)
+				n = aux->n;
+		}
 	}
 	dprintf(STDOUT_FILENO, "\n");
 }
@@ -123,6 +126,7 @@ void op_rotr(stack_t **stack, unsigned int line_number)
 				a1->prev = a2;
 				a1 = a1->next;
 			}
+			*stack = a1;
 		}
 	}
 }
