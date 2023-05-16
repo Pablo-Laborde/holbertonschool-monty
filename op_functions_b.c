@@ -68,7 +68,7 @@ void op_div(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack) || !(*stack)->prev)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't sub, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't div, stack too short\n", line_number);
 		_exit_f(1);
 	}
 	if ((*stack)->n == 0)
