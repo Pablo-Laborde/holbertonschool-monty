@@ -42,7 +42,7 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 	}
 	if ((*stack)->n > 127 || (*stack)->n < -128)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't pchar, value out of range\n", line_number);
+		dprintf(2, "L%u: can't pchar, value out of range\n", line_number);
 		_exit_f(1);
 	}
 	dprintf(STDOUT_FILENO, "%c\n", (*stack)->n);

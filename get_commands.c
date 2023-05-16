@@ -69,7 +69,7 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 			i++;
 		}
 	}
-	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", info.line_number, val);
+	dprintf(2, "L%u: unknown instruction %s\n", info.line_number, val);
 	_exit_f(1);
 	return (NULL);
 }
