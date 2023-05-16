@@ -124,9 +124,9 @@ void op_rotr(stack_t **stack, unsigned int line_number)
 				a2 = a1->next;
 				a1->next = a1->prev;
 				a1->prev = a2;
+				*stack = a1;
 				a1 = a1->next;
 			}
-			*stack = a1;
 		}
 	}
 }
