@@ -44,6 +44,7 @@ void (*get_func(char *name))(stack_t **, unsigned int)
 		{"nop", op_nop}, {"sub", op_sub}, {"div", op_div},
 		{"mul", op_mul}, {"mod", op_mod}, {"pchar", op_pchar},
 		{"pstr", op_pstr}, {"rotl", op_rotl}, {"rotr", op_rotr},
+		{"queue", op_queue}, {"stack", op_stack},
 		{NULL, NULL}
 	};
 
