@@ -111,7 +111,7 @@ void op_rotl(stack_t **stack, unsigned int line_number)
 */
 void op_rotr(stack_t **stack, unsigned int line_number)
 {
-	stack_t *a1 = NULL, *a2 = NULL;
+	stack_t *a0 = NULL, *a1 = NULL, *a2 = NULL;
 
 	(void)line_number;
 	if (stack)
@@ -119,14 +119,15 @@ void op_rotr(stack_t **stack, unsigned int line_number)
 		a1 = *stack;
 		if (a1 && a1->prev)
 		{
-			while (a1)
-			{
-				a2 = a1->next;
-				a1->next = a1->prev;
-				a1->prev = a2;
-				*stack = a1;
-				a1 = a1->next;
-			}
+			while (a1->prev)
+				a1 = a1->prev;
+			a2 = a1->next;
+			a0 = *stack;
+			a2->prev = NULL;
+			a0->next = a1;
+			a1->next = NULL;
+			a1->prev = a0;
+			*stack = a1;
 		}
 	}
 }
